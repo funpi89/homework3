@@ -14,8 +14,8 @@ public class BoxTester {
         width = scanner.nextFloat();
         System.out.print("Please enter object's height : ");
         height = scanner.nextInt();
-        Box box3 = new Box3();
-        Box box5 = new Box5();
+        Box box3 = new Box3(23,14,13);
+        Box box5 = new Box5(39.5f,27.5f,23);
         if(box3.validate(length,width,height)){
             System.out.println("Box3");
         }else if (box5.validate(length,width,height)){

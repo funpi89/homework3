@@ -13,8 +13,8 @@ fun main(args: Array<String>) {
     width = scanner.nextFloat()
     print("Please enter object's height: ")
     height = scanner.nextInt()
-    var box3 = Box3()
-    var box5 = Box5()
+    var box3 = Box3(23f,14f,13)
+    var box5 = Box5(39.5f,27.5f,23)
     if (box3.validate(length,width, height)){
         println("Box3")
     }else if (box5.validate(length, width, height)){
@@ -24,19 +24,16 @@ fun main(args: Array<String>) {
     }
 }
 
-abstract class Box(){
-    abstract fun validate(length : Float, width : Float, height:Int) : Boolean
+open class Box(val boxlength:Float, val boxwidth : Float, val boxheight:Int){
+    fun validate(length : Float, width : Float, height:Int) =
+    (length <= boxlength && width <= boxwidth && height <= boxheight)
 }
 
-class Box3 : Box() {
-    override fun validate(length: Float, width: Float, height: Int) =
-        (length <= 23 && width <= 14 && height <= 13)
+class Box3(boxlength:Float, boxwidth : Float, boxheight:Int) : Box(boxlength,boxwidth,boxheight) {
+
 }
 
-class Box5 : Box() {
-    override fun validate(length: Float, width: Float, height: Int) =
-        (length <= 39.5 && width <= 27.5 && height <= 23)
-
+class Box5(boxlength:Float, boxwidth : Float, boxheight:Int) : Box(boxlength,boxwidth,boxheight) {
 
 }
 
